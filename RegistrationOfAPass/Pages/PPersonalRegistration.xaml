@@ -1,0 +1,223 @@
+﻿<Page x:Class="RegistrationOfAPass.Pages.PersonalRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RegistrationOfAPass.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="PersonalRegistration">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <Grid Margin="5,5,5,5">
+                    <Rectangle Fill="#ff9619"
+                       Width="250"
+                       Height="70"
+                       RadiusX="15"
+                       RadiusY="15"/>
+                    <TextBlock Text="Информация для пропуска"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"/>
+                </Grid>
+                <TextBlock Text="Срок действия заявки:"
+                       HorizontalAlignment="Center"
+                       FontSize="12"
+                       Margin="0,0,0,7"/>
+                <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,7">
+                    <TextBlock Text="с*"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           Margin="0,0,5,0"/>
+                    <DatePicker x:Name="DPStartDate"
+                                Margin="0,0,5,0"/>
+                    <TextBlock Text="по"
+                           VerticalAlignment="Center"
+                           FontSize="12"
+                           Margin="0,0,5,0"/>
+                    <DatePicker x:Name="DPEndDate"/>
+                </StackPanel>
+                <TextBlock Text="Цель посещения:"
+                       FontSize="12"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,7"/>
+                <ComboBox Margin="5,0,5,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+                <Grid Margin="5,5,5,5">
+                    <Rectangle Fill="#ff9619"
+                       Width="520"
+                       Height="70"
+                       RadiusX="15"
+                       RadiusY="15"/>
+                    <TextBlock Text="Принимающая сторона"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"/>
+                </Grid>
+                <TextBlock Text="Пoдразделение*:"
+                       FontSize="12"
+                       Margin="5,6,5,6"/>
+                <ComboBox Margin="5,0,5,7"/>
+                <TextBlock Text="ФИО*:"
+                       FontSize="12"
+                       Margin="5,0,5,6"/>
+                <TextBox Margin="5,0,5,0"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <Grid Margin="5,5,5,5">
+                    <Rectangle Fill="#ff9619"
+                       Width="770"
+                       Height="70"
+                       RadiusX="15"
+                       RadiusY="15"/>
+                    <TextBlock Text="Информация о посетителе"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Фамилия*:" Margin="10,0,10,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Имя*:"
+                                       Margin="10,0,10,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Отчество*:"
+                                       Margin="10,0,10,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Телефон:" Margin="10,0,10,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Email:" Margin="10,0,0,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Организация:" Margin="10,0,10,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Примечание:"
+                                       Margin="10,0,10,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Дата рождения:"
+                                       Margin="10,0,10,0"/>
+                            <DatePicker Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Серия:" Margin="10,0,10,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Номер:" Margin="10,0,0,0"/>
+                            <TextBox Width="150"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2"
+                                VerticalAlignment="Center">
+                        <Image Source="/images/User.jpg" Height="80"/>
+                        <Button BorderBrush="#ff9619"
+                                BorderThickness="2"
+                                Width="120"
+                                Height="30"
+                                Content="Загрузить фото"
+                                Foreground="#938d8b"
+                                Background="White"
+                                x:Name="BLoadPicture"
+                                Click="BLoadPicture_Click"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <Grid Margin="5,5,5,5">
+                    <Rectangle Fill="#ff9619"
+                       Width="450"
+                       Height="50"
+                       RadiusX="15"
+                       RadiusY="15"/>
+                    <TextBlock Text="Список посетителей"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"/>
+                </Grid>
+                <Button BorderBrush="White"
+                        BorderThickness="0"
+                        Background="White"
+                        x:Name="BLoadFile"
+                        Click="BLoadFile_Click"
+                        Margin="5,5,5,5">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/images/load.png"
+                                   Height="20"/>
+                                <TextBlock Text="Прикрепить файл"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1"
+                        VerticalAlignment="Bottom">
+                <Button BorderBrush="White"
+                        Content="Очистить форму"
+                        Foreground="#938d8b"
+                        Background="White"
+                        Height="30"
+                        Width="150"
+                        x:Name="BClear"
+                        Click="BClear_Click"
+                        Margin="10,0,10,0"/>
+                <Button BorderBrush="#ff9619"
+                        BorderThickness="2"
+                        Height="30"
+                        Width="150"
+                        x:Name="BRegister"
+                        Content="Оформить заявку"
+                        Click="BRegister_Click"
+                        Margin="10,0,10,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
