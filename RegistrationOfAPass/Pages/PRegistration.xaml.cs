@@ -67,30 +67,42 @@ namespace RegistrationOfAPass.Pages
             {
                 error += "Введите назначение\n";
             }
-            if(String.IsNullOrWhiteSpace(error) != true)
+
+            if (contextUser.Password.Length < 8)
+            {
+                error += "Пароль должен быть не менее 8 символов\n";
+            }
+            if (contextUser.Password.ToLower() == (contextUser.Password))
+            {
+                error += "Пароль должен содержать символ верхнего регистра\n";
+            }
+            if (contextUser.Password.ToUpper() == (contextUser.Password))
+            {
+                error += "Пароль должен содержать символ нижнего регистра\n";
+            }
+            bool hasNumber = false;
+            foreach(var ch in contextUser.Password)
+            {
+                hasNumber = Char.IsNumber(ch);
+                if(hasNumber == true)
+                {
+                    break;
+                }
+            }
+            //^(?=.*[a - z])(?=.*[A - Z])(?=.*\d).{ 8,15}$
+            if(Regex.IsMatch(contextUser.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$") != true)
+            {
+                error += "Неверный формат пароля";
+            }
+            if (!hasNumber)
+            {
+                error += "Строка не содержит цифры";
+            }
+            if (String.IsNullOrWhiteSpace(error) != true)
             {
                 MessageBox.Show(error);
                 return;
             }
-
-            if (contextUser.Password.Length < 8)
-            {
-                error += "Пароль должен быть не менее 8 символов";
-            }
-            if(contextUser.Password.ToLower() == (contextUser.Password))
-            {
-                error += "Пароль должен содержать символ верхнего регистра";
-            }
-            if (contextUser.Password.ToUpper() == (contextUser.Password))
-            {
-                error += "Пароль должен содержать символ нижнего регистра";
-            }
-            Regex regex = new Regex("@А-яA-z0-9");
-            if (regex.IsMatch(contextUser.Password))
-            {
-                MessageBox.Show("Неверный формат пароля");
-            }
-
             string hashPassword = GetHash(contextUser.Password);
             contextUser.Password = hashPassword;
 

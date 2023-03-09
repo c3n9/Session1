@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
+using RegistrationOfAPass.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,12 +30,17 @@ namespace RegistrationOfAPass.Pages
 
         private void BLoadFile_Click(object sender, RoutedEventArgs e)
         {
-
+            var dialog = new OpenFileDialog() { Filter = ".pdf | *.pdf" };
         }
 
         private void BLoadPicture_Click(object sender, RoutedEventArgs e)
         {
-
+            var dialog = new OpenFileDialog() { Filter = ".png,.jpeg,.jpg|*.png; *.jpeg; *.jpg" };
+            if (dialog.ShowDialog().GetValueOrDefault())
+            {
+                var picture = new Pass();
+                var image = File.ReadAllBytes(dialog.FileName);
+            }
         }
 
         private void BClear_Click(object sender, RoutedEventArgs e)

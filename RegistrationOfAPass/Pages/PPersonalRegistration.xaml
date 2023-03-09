@@ -148,7 +148,7 @@
                     </StackPanel>
                     <StackPanel Grid.Column="2"
                                 VerticalAlignment="Center">
-                        <Image Source="/images/User.jpg" Height="80"/>
+                        <Image x:Name="Photo" Source="/images/User.jpg" Height="80"/>
                         <Button BorderBrush="#ff9619"
                                 BorderThickness="2"
                                 Width="120"

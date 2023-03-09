@@ -5,8 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b4808fa498904f81977d4c25a3b4656c" Name="Diagram1">
-        <EntityTypeShape EntityType="GuardianModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="GuardianModel.User" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GuardianModel.Pass" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="GuardianModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GuardianModel.Unit" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="GuardianModel.User" Width="1.5" PointX="5.75" PointY="3.75" />
+        <AssociationConnector Association="GuardianModel.FK_Pass_Unit" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,9 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="GuardianModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="GuardianEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Pass" EntityType="GuardianModel.Pass" />
     <EntitySet Name="sysdiagrams" EntityType="GuardianModel.sysdiagrams" />
+    <EntitySet Name="Unit" EntityType="GuardianModel.Unit" />
     <EntitySet Name="User" EntityType="GuardianModel.User" />
+    <AssociationSet Name="FK_Pass_Unit" Association="GuardianModel.FK_Pass_Unit">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Pass" EntitySet="Pass" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Pass">
+    <Key>
+      <PropertyRef Name="int" />
+    </Key>
+    <Property Name="int" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dateStart" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="dateEnd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AimId" Type="Int32" />
+    <Property Name="UnitId" Type="Int32" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NmberPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birth" Type="DateTime" Precision="0" />
+    <Property Name="Series" Type="Int32" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Photo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Unit" Relationship="GuardianModel.FK_Pass_Unit" FromRole="Pass" ToRole="Unit" />
+  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -13,6 +41,14 @@
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Pass" Relationship="GuardianModel.FK_Pass_Unit" FromRole="Unit" ToRole="Pass" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -28,4 +64,16 @@
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Appointment" Type="DateTime" Nullable="false" Precision="0" />
   </EntityType>
+  <Association Name="FK_Pass_Unit">
+    <End Type="GuardianModel.Unit" Role="Unit" Multiplicity="0..1" />
+    <End Type="GuardianModel.Pass" Role="Pass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pass">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

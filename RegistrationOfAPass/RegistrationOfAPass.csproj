@@ -113,7 +113,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelGuardian.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Pass.cs">
+      <DependentUpon>ModelGuardian.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>ModelGuardian.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Unit.cs">
       <DependentUpon>ModelGuardian.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
@@ -167,7 +173,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tools\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\User.jpg" />
   </ItemGroup>
