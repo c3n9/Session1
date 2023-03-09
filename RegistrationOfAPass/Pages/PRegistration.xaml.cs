@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.RightsManagement;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -89,6 +90,10 @@ namespace RegistrationOfAPass.Pages
             {
                 MessageBox.Show("Неверный формат пароля");
             }
+
+            string hashPassword = GetHash(contextUser.Password);
+            contextUser.Password = hashPassword;
+
             App.DB.User.Add(contextUser);
             App.DB.SaveChanges();
             NavigationService.GoBack();
@@ -97,6 +102,12 @@ namespace RegistrationOfAPass.Pages
         private void BCancel_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+        private string GetHash(string input)
+        {
+            var md5 = MD5.Create();
+            var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
+            return Convert.ToBase64String(hash);
         }
     }
 }
