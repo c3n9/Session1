@@ -1,25 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Хранилище GuardianModelContainer" CdmEntityContainer="GuardianEntities">
+    <EntitySetMapping Name="Department">
+      <EntityTypeMapping TypeName="GuardianModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="GuardianModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="DepertmentId" ColumnName="DepertmentId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Pass">
       <EntityTypeMapping TypeName="GuardianModel.Pass">
         <MappingFragment StoreEntitySet="Pass">
+          <ScalarProperty Name="PassStatusId" ColumnName="PassStatusId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="VisitPurpose" ColumnName="VisitPurpose" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="int" ColumnName="int" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassDocument">
+      <EntityTypeMapping TypeName="GuardianModel.PassDocument">
+        <MappingFragment StoreEntitySet="PassDocument">
+          <ScalarProperty Name="PassId" ColumnName="PassId" />
+          <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassGuest">
+      <EntityTypeMapping TypeName="GuardianModel.PassGuest">
+        <MappingFragment StoreEntitySet="PassGuest">
+          <ScalarProperty Name="PassId" ColumnName="PassId" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="Number" ColumnName="Number" />
-          <ScalarProperty Name="Series" ColumnName="Series" />
-          <ScalarProperty Name="Birth" ColumnName="Birth" />
+          <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+          <ScalarProperty Name="PassportSeria" ColumnName="PassportSeria" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Organization" ColumnName="Organization" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="NmberPhone" ColumnName="NmberPhone" />
-          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Patromic" ColumnName="Patromic" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
-          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
-          <ScalarProperty Name="AimId" ColumnName="AimId" />
-          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
-          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
-          <ScalarProperty Name="int" ColumnName="int" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassStatus">
+      <EntityTypeMapping TypeName="GuardianModel.PassStatus">
+        <MappingFragment StoreEntitySet="PassStatus">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -34,24 +78,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Unit">
-      <EntityTypeMapping TypeName="GuardianModel.Unit">
-        <MappingFragment StoreEntitySet="Unit">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="GuardianModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Appointment" ColumnName="Appointment" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="Passport" ColumnName="Passport" />
-          <ScalarProperty Name="Birth" ColumnName="Birth" />
+          <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+          <ScalarProperty Name="PassportSeria" ColumnName="PassportSeria" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

@@ -12,26 +12,22 @@ namespace RegistrationOfAPass.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class PassGuest
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.Pass = new HashSet<Pass>();
-        }
-    
         public int Id { get; set; }
-        public string FullName { get; set; }
-        public string Number { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Patromic { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
-        public System.DateTime Birthday { get; set; }
+        public string Organization { get; set; }
+        public string Description { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
         public string PassportSeria { get; set; }
         public string PassportNumber { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public System.DateTime Appointment { get; set; }
+        public byte[] Photo { get; set; }
+        public int PassId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pass> Pass { get; set; }
+        public virtual Pass Pass { get; set; }
     }
 }

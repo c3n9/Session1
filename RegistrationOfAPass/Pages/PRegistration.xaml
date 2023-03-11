@@ -16,19 +16,22 @@
             
             <TextBlock Text="Номер телефона"/>
             <TextBox x:Name="TBNumberPhone"
-                     Text="{Binding NumberPhone}"/>
+                     Text="{Binding Number}"/>
             
             <TextBlock Text="E-mail"/>
             <TextBox x:Name="TBEmail"
                      Text="{Binding Email}"/>
-            
+
             <TextBlock Text="Дата рождения"/>
             <DatePicker x:Name="DPBirth"
-                        SelectedDate="{Binding Birth}"/>
+                        SelectedDate="{Binding Birthday}"/>
             
-            <TextBlock Text="Пасспорт"/>
-            <TextBox x:Name="TBPassport"
-                     Text="{Binding Passport}"/>
+            <TextBlock Text="Серия пасспорта"/>
+            <TextBox x:Name="TBPassportSeria"
+                     Text="{Binding PassportSeria}"/>
+            <TextBlock Text="Номер паспорта"/>
+            <TextBox x:Name="TBPassportNumber"
+                     Text="{Binding PassportNumber}"/>
             
             <TextBlock Text="Логин"/>
             <TextBox x:Name="TBLogin"

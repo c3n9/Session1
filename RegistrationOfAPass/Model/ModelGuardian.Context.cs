@@ -25,9 +25,13 @@ namespace RegistrationOfAPass.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Department> Department { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Pass> Pass { get; set; }
+        public virtual DbSet<PassDocument> PassDocument { get; set; }
+        public virtual DbSet<PassGuest> PassGuest { get; set; }
+        public virtual DbSet<PassStatus> PassStatus { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Unit> Unit { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

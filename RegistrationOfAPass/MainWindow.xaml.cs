@@ -26,5 +26,10 @@ namespace RegistrationOfAPass
             InitializeComponent();
             MainFrame.Navigate(new LoginInSystem());
         }
+
+        private void BBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.GoBack();
+        }
     }
 }

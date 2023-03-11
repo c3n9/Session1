@@ -12,18 +12,12 @@ namespace RegistrationOfAPass.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Unit
+    public partial class PassDocument
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Unit()
-        {
-            this.Pass = new HashSet<Pass>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string DocumentFile { get; set; }
+        public int PassId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pass> Pass { get; set; }
+        public virtual Pass Pass { get; set; }
     }
 }

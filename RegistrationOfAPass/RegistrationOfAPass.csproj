@@ -76,15 +76,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\GroupRegistration.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\LoginInSystem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PPersonalRegistration.xaml">
+    <Page Include="Pages\PPass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,6 +94,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Department.cs">
+      <DependentUpon>ModelGuardian.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>ModelGuardian.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ModelGuardian.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,23 +118,26 @@
     <Compile Include="Model\Pass.cs">
       <DependentUpon>ModelGuardian.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
+    <Compile Include="Model\PassDocument.cs">
       <DependentUpon>ModelGuardian.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Unit.cs">
+    <Compile Include="Model\PassGuest.cs">
+      <DependentUpon>ModelGuardian.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PassStatus.cs">
+      <DependentUpon>ModelGuardian.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>ModelGuardian.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>ModelGuardian.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\GroupRegistration.xaml.cs">
-      <DependentUpon>GroupRegistration.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\LoginInSystem.xaml.cs">
       <DependentUpon>LoginInSystem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PPersonalRegistration.xaml.cs">
-      <DependentUpon>PPersonalRegistration.xaml</DependentUpon>
+    <Compile Include="Pages\PPass.xaml.cs">
+      <DependentUpon>PPass.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PRegistration.xaml.cs">
       <DependentUpon>PRegistration.xaml</DependentUpon>

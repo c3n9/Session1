@@ -14,23 +14,27 @@ namespace RegistrationOfAPass.Model
     
     public partial class Pass
     {
-        public int @int { get; set; }
-        public System.DateTime dateStart { get; set; }
-        public System.DateTime dateEnd { get; set; }
-        public Nullable<int> AimId { get; set; }
-        public Nullable<int> UnitId { get; set; }
-        public string FullName { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Patronymic { get; set; }
-        public string NmberPhone { get; set; }
-        public string Email { get; set; }
-        public string Organization { get; set; }
-        public Nullable<System.DateTime> Birth { get; set; }
-        public Nullable<int> Series { get; set; }
-        public Nullable<int> Number { get; set; }
-        public byte[] Photo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Pass()
+        {
+            this.PassDocument = new HashSet<PassDocument>();
+            this.PassGuest = new HashSet<PassGuest>();
+        }
     
-        public virtual Unit Unit { get; set; }
+        public int @int { get; set; }
+        public System.DateTime DateStart { get; set; }
+        public System.DateTime DateEnd { get; set; }
+        public string VisitPurpose { get; set; }
+        public int EmployeeId { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public int PassStatusId { get; set; }
+    
+        public virtual Employee Employee { get; set; }
+        public virtual PassStatus PassStatus { get; set; }
+        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PassDocument> PassDocument { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PassGuest> PassGuest { get; set; }
     }
 }

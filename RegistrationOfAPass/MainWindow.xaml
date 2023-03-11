@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegistrationOfAPass"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="850">
+        Title="MainWindow" Height="550" Width="850">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -20,6 +20,17 @@
                        FontFamily="Segoe UI"
                        VerticalAlignment="Center"/>
         </StackPanel>
+        <Button HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Height="20"
+                Width="60"
+                Content="Back"
+                Margin="0,0,10,0"
+                BorderThickness="2"
+                BorderBrush="#ff9619"
+                Background="white"
+                x:Name="BBack"
+                Click="BBack_Click"/>
         <Frame x:Name="MainFrame"
                NavigationUIVisibility="Hidden"
                Grid.Row="1"/>

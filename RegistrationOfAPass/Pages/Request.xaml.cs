@@ -27,12 +27,12 @@ namespace RegistrationOfAPass.Pages
 
         private void Bpersonal_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PersonalRegistration());
+            NavigationService.Navigate(new PPass(1));
         }
 
         private void BGroup_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new GroupRegistration());
+            NavigationService.Navigate(new PPass(2));
         }
     }
 }

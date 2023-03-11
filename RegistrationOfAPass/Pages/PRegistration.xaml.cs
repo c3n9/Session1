@@ -39,7 +39,7 @@ namespace RegistrationOfAPass.Pages
             {
                 error += "Введите ФИО\n";
             }
-            if (String.IsNullOrWhiteSpace(contextUser.NumberPhone))
+            if (String.IsNullOrWhiteSpace(contextUser.Number))
             {
                 error += "Введите номер телефона\n";
             }
@@ -47,7 +47,7 @@ namespace RegistrationOfAPass.Pages
             {
                 error += "Введите E-mail\n";
             }
-            if(contextUser.Birth == null)
+            if(contextUser.Birthday == null)
             {
                 error += "Введите дату рождения\n";
             }
@@ -59,15 +59,18 @@ namespace RegistrationOfAPass.Pages
             {
                 error += "Введите пароль\n";
             }
-            if (String.IsNullOrEmpty(contextUser.Passport))
+            if (String.IsNullOrEmpty(contextUser.PassportSeria))
             {
-                error += "Введите серию и номер паспорта\n";
+                error += "Введите серию паспорта\n";
             }
-            if(contextUser.Appointment == null)
+            if (String.IsNullOrEmpty(contextUser.PassportNumber))
+            {
+                error += "Введите номер паспорта\n";
+            }
+            if (contextUser.Appointment == null)
             {
                 error += "Введите назначение\n";
             }
-
             if (contextUser.Password.Length < 8)
             {
                 error += "Пароль должен быть не менее 8 символов\n";
@@ -121,5 +124,6 @@ namespace RegistrationOfAPass.Pages
             var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
             return Convert.ToBase64String(hash);
         }
+
     }
 }
