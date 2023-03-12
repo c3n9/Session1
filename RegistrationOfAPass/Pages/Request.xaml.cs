@@ -34,5 +34,10 @@ namespace RegistrationOfAPass.Pages
         {
             NavigationService.Navigate(new PPass(2));
         }
+
+        private void BApplications_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PApplications());
+        }
     }
 }

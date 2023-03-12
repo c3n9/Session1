@@ -54,9 +54,9 @@
   </EntityType>
   <EntityType Name="Pass">
     <Key>
-      <PropertyRef Name="int" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="int" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="VisitPurpose" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -184,7 +184,7 @@
     <End Type="GuardianModel.PassDocument" Role="PassDocument" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pass">
-        <PropertyRef Name="int" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="PassDocument">
         <PropertyRef Name="PassId" />
@@ -196,7 +196,7 @@
     <End Type="GuardianModel.PassGuest" Role="PassGuest" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Pass">
-        <PropertyRef Name="int" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="PassGuest">
         <PropertyRef Name="PassId" />

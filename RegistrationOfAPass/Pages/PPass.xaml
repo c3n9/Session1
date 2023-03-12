@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RegistrationOfAPass.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="820"
       Title="PPass">
 
     <Grid>
@@ -44,12 +44,13 @@
                            Margin="0,0,5,0"/>
                     <DatePicker x:Name="DPStartDate"
                                 Margin="0,0,5,0"
-                                />
+                                SelectedDate="{Binding Pass.DateStart}"/>
                     <TextBlock Text="по"
                            VerticalAlignment="Center"
                            FontSize="12"
                            Margin="0,0,5,0"/>
-                    <DatePicker x:Name="DPEndDate"/>
+                    <DatePicker x:Name="DPEndDate"
+                                SelectedDate="{Binding Pass.DateEnd}"/>
                 </StackPanel>
                 <TextBlock Text="Цель посещения:"
                        FontSize="12"
@@ -62,7 +63,7 @@
             <StackPanel Grid.Column="1">
                 <Grid Margin="5,5,5,5">
                     <Rectangle Fill="#ff9619"
-                       Width="520"
+                       Width="550"
                        Height="70"
                        RadiusX="15"
                        RadiusY="15"/>
@@ -75,93 +76,114 @@
                        FontSize="12"
                        Margin="5,6,5,6"/>
                 <ComboBox x:Name="CBDepartment" 
-                         DisplayMemberPath="Name"
-                          Margin="5,0,5,7"/>
+                          DisplayMemberPath="Name"
+                          Margin="5,0,5,7"
+                          SelectedItem="{Binding Pass.Employee.Department.Name}"/>
                 <TextBlock Text="ФИО*:"
                        FontSize="12"
                        Margin="5,0,5,6"/>
-                <ComboBox x:Name="CBFullName" 
+                <ComboBox x:Name="CBEmployee" 
                           Margin="5,0,5,0"
-                          DisplayMemberPath="FullName"/>
+                          DisplayMemberPath="FullName"
+                          SelectedItem="{Binding Pass.Employee.FullName}"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel>
-                <Grid Margin="5,5,5,5">
-                    <Rectangle Fill="#ff9619"
-                       Width="770"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <StackPanel>
+                    <Grid Margin="5,5,5,5">
+                        <Rectangle Fill="#ff9619"
+                       Width="570"
                        Height="70"
                        RadiusX="15"
                        RadiusY="15"/>
-                    <TextBlock Text="Информация о посетителе"
+                        <TextBlock Text="Информация о посетителе"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        FontSize="16"/>
-                </Grid>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Фамилия*:" Margin="10,0,10,0"/>
-                            <TextBox Width="150"
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Фамилия*:" Margin="10,0,10,0"/>
+                                <TextBox Width="150"
                                      x:Name="TBSurname"
                                      Text="{Binding Surname}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Имя*:"
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Имя*:"
                                        Margin="10,0,10,0"/>
-                            <TextBox Width="150"
+                                <TextBox Width="150"
                                      x:Name="TBName"
                                      Text="{Binding Name}"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Отчество*:"
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Отчество*:"
                                        Margin="10,0,10,0"/>
-                            <TextBox Width="150"
+                                <TextBox Width="150"
                                      x:Name="TBPatronomic"
-                                     Text="{Binding Patronomic}"/>
+                                     Text="{Binding Patromic}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Телефон:" Margin="10,0,10,0"/>
+                                <TextBox Width="150"
+                                     x:Name="TBNumber"
+                                     Text="{Binding Number}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Email:" Margin="10,0,0,0"/>
+                                <TextBox Width="150"
+                                     x:Name="TBEmail"
+                                     Text="{Binding Email}"/>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Телефон:" Margin="10,0,10,0"/>
-                            <TextBox Width="150"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Email:" Margin="10,0,0,0"/>
-                            <TextBox Width="150"/>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Организация:" Margin="10,0,10,0"/>
-                            <TextBox Width="150"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Примечание:"
+                        <StackPanel Grid.Column="1">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Организация:" Margin="10,0,10,0"/>
+                                <TextBox Width="150"
+                                     x:Name="TBOrganization"
+                                     Text="{Binding Organization}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Примечание:"
                                        Margin="10,0,10,0"/>
-                            <TextBox Width="150"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Дата рождения:"
+                                <TextBox Width="150"
+                                     x:Name="TBDescription"
+                                     Text="{Binding Description}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Дата рождения:"
                                        Margin="10,0,10,0"/>
-                            <DatePicker Width="150"/>
+                                <DatePicker Width="150"
+                                        x:Name="DPBirthday"
+                                        SelectedDate="{Binding Birthday}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Серия:" Margin="10,0,10,0"/>
+                                <TextBox Width="150"
+                                     x:Name="TBPassportSeria"
+                                     Text="{Binding PassportSeria}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Номер:" Margin="10,0,0,0"/>
+                                <TextBox Width="150"
+                                     x:Name="TBPassportNumber"
+                                     Text="{Binding PassportNumber}"/>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Серия:" Margin="10,0,10,0"/>
-                            <TextBox Width="150"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Номер:" Margin="10,0,0,0"/>
-                            <TextBox Width="150"/>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel Grid.Column="2"
+                        <StackPanel Grid.Column="2"
                                 VerticalAlignment="Center">
-                        <Image x:Name="Photo" Source="/images/User.jpg" Height="80"/>
-                        <Button BorderBrush="#ff9619"
+                            <Image x:Name="IPhoto" Source="{Binding Photo}" Height="80"/>
+                            <Button BorderBrush="#ff9619"
                                 BorderThickness="2"
                                 Width="120"
                                 Height="30"
@@ -170,9 +192,43 @@
                                 Background="White"
                                 x:Name="BLoadPicture"
                                 Click="BLoadPicture_Click"/>
-                    </StackPanel>
-                </Grid>
-            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1" 
+                  Visibility="Collapsed"
+                  x:Name="GGroup">
+                <StackPanel>
+                    <Grid Margin="5,5,5,5">
+                        <Rectangle Fill="#ff9619"
+                       Width="200"
+                       Height="70"
+                       RadiusX="15"
+                       RadiusY="15"/>
+                        <TextBlock Text="Информация о посетителе"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"/>
+                    </Grid>
+                    <Button x:Name="BAdd"
+                            Content="Add"
+                            Click="BAdd_Click"
+                            Background="White"
+                            BorderBrush="#ff9619"
+                            BorderThickness="2"/>
+                    <DataGrid>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Фамилия"
+                                                Binding="{Binding Surname}"/>
+                            <DataGridTextColumn Header="Имя"
+                                                Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Отчество"
+                                                Binding="{Binding Patromic}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Grid>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

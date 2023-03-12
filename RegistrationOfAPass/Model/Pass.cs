@@ -21,7 +21,7 @@ namespace RegistrationOfAPass.Model
             this.PassGuest = new HashSet<PassGuest>();
         }
     
-        public int @int { get; set; }
+        public int Id { get; set; }
         public System.DateTime DateStart { get; set; }
         public System.DateTime DateEnd { get; set; }
         public string VisitPurpose { get; set; }

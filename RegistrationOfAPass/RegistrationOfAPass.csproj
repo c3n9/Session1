@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\PApplications.xaml.cs">
+      <DependentUpon>PApplications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\MyTools.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +81,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\LoginInSystem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PApplications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,9 +186,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tools\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\User.jpg" />
   </ItemGroup>
@@ -195,6 +201,7 @@
     <Resource Include="Images\load.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Applications.png" />
     <Content Include="Model\ModelGuardian.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelGuardian.Context.cs</LastGenOutput>

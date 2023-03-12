@@ -17,38 +17,44 @@
                 <Button x:Name="BPersonal"
                     Click="Bpersonal_Click"
                     Width="190"
-                    Height="140"
-                    BorderThickness="20"
-                    BorderBrush="#d9d9d9">
-                    <Button.ContentTemplate>
-                        <DataTemplate>
-                            <Image Source="/images/personal.png"/>
-                        </DataTemplate>
-                    </Button.ContentTemplate>
-                </Button>
-                <TextBlock Text="Личное посещение"
-                           HorizontalAlignment="Center"
+                    Height="140">
+                    <StackPanel>
+                        <Image Source="/images/personal.png"
+                               Height="80"/>
+                        <TextBlock Text="Личное посещение"
                            Foreground="#938d8b"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <StackPanel VerticalAlignment="Center"
-                        Margin="0,0,10,0"
-                        Background="#d9d9d9">
+                        Margin="0,0,10,0">
                 <Button x:Name="BGroup"
                     Click="BGroup_Click"
                     Width="190"
                     Height="140"
-                    BorderThickness="20"
-                    Margin="10,0,0,0"
-                    BorderBrush="#d9d9d9">
-                    <Button.ContentTemplate>
-                        <DataTemplate>
-                            <Image Source="/images/group.png"/>
-                        </DataTemplate>
-                    </Button.ContentTemplate>
-                </Button>
-                <TextBlock Text="Групповое посещение"
-                           HorizontalAlignment="Center"
+                    Margin="10,0,0,0">
+                    <StackPanel>
+                        <Image Source="/images/group.png"
+                               Height="80"/>
+                        <TextBlock Text="Групповое посещение"
                            Foreground="#938d8b"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center"
+                        Margin="0,0,10,0">
+                <Button x:Name="BApplications"
+                    Click="BApplications_Click"
+                    Width="190"
+                    Height="140"
+                    Margin="10,0,0,0">
+                    <StackPanel>
+                        <Image Source="/images/Applications.png"
+                               Height="80"/>
+                        <TextBlock Text="Групповое посещение"
+                           Foreground="#938d8b"/>
+                    </StackPanel>
+                </Button>
             </StackPanel>
         </StackPanel>
     </Grid>
