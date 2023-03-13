@@ -18,36 +18,16 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="DepertmentId" Type="int" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Pass">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateStart" Type="date" Nullable="false" />
-          <Property Name="DateEnd" Type="date" Nullable="false" />
-          <Property Name="VisitPurpose" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="EmployeeId" Type="int" Nullable="false" />
-          <Property Name="UserId" Type="int" />
-          <Property Name="PassStatusId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PassDocument">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DocumentFile" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="PassId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="PassGuest">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
-          <Property Name="Patromic" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Patromic" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="Email" Type="nvarchar" MaxLength="150" />
           <Property Name="Organization" Type="nvarchar" MaxLength="50" />
@@ -55,8 +35,21 @@
           <Property Name="BirthDate" Type="date" />
           <Property Name="PassportSeria" Type="nvarchar" MaxLength="4" />
           <Property Name="PassportNumber" Type="nvarchar" MaxLength="6" />
-          <Property Name="Photo" Type="image" />
-          <Property Name="PassId" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="image" Nullable="false" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
+          <Property Name="VisitPurpose" Type="nvarchar" MaxLength="50" />
+          <Property Name="PassStatusId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentFile" Type="nchar" MaxLength="10" />
+          <Property Name="PassId" Type="int" />
         </EntityType>
         <EntityType Name="PassStatus">
           <Key>
@@ -80,15 +73,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="Number" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Birthday" Type="date" Nullable="false" />
-          <Property Name="PassportSeria" Type="nvarchar" MaxLength="4" Nullable="false" />
-          <Property Name="PassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Appointment" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK_Employee_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="1" />
@@ -98,7 +84,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Employee">
-              <PropertyRef Name="DepertmentId" />
+              <PropertyRef Name="DepartmentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -139,7 +125,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PassDocument_Pass">
-          <End Role="Pass" Type="Self.Pass" Multiplicity="1" />
+          <End Role="Pass" Type="Self.Pass" Multiplicity="0..1" />
           <End Role="PassDocument" Type="Self.PassDocument" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pass">
@@ -150,24 +136,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PassGuest_Pass">
-          <End Role="Pass" Type="Self.Pass" Multiplicity="1" />
-          <End Role="PassGuest" Type="Self.PassGuest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pass">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PassGuest">
-              <PropertyRef Name="PassId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="Хранилище GuardianModelContainer">
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pass" EntityType="Self.Pass" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PassDocument" EntityType="Self.PassDocument" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PassGuest" EntityType="Self.PassGuest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PassStatus" EntityType="Self.PassStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -191,10 +164,6 @@
             <End Role="Pass" EntitySet="Pass" />
             <End Role="PassDocument" EntitySet="PassDocument" />
           </AssociationSet>
-          <AssociationSet Name="FK_PassGuest_Pass" Association="Self.FK_PassGuest_Pass">
-            <End Role="Pass" EntitySet="Pass" />
-            <End Role="PassGuest" EntitySet="PassGuest" />
-          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -205,7 +174,6 @@
           <EntitySet Name="Employee" EntityType="GuardianModel.Employee" />
           <EntitySet Name="Pass" EntityType="GuardianModel.Pass" />
           <EntitySet Name="PassDocument" EntityType="GuardianModel.PassDocument" />
-          <EntitySet Name="PassGuest" EntityType="GuardianModel.PassGuest" />
           <EntitySet Name="PassStatus" EntityType="GuardianModel.PassStatus" />
           <EntitySet Name="sysdiagrams" EntityType="GuardianModel.sysdiagrams" />
           <EntitySet Name="User" EntityType="GuardianModel.User" />
@@ -229,10 +197,6 @@
             <End Role="Pass" EntitySet="Pass" />
             <End Role="PassDocument" EntitySet="PassDocument" />
           </AssociationSet>
-          <AssociationSet Name="FK_PassGuest_Pass" Association="GuardianModel.FK_PassGuest_Pass">
-            <End Role="Pass" EntitySet="Pass" />
-            <End Role="PassGuest" EntitySet="PassGuest" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Department">
           <Key>
@@ -248,7 +212,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FullName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="DepertmentId" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Department" Relationship="GuardianModel.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
           <NavigationProperty Name="Pass" Relationship="GuardianModel.FK_Pass_Employee" FromRole="Employee" ToRole="Pass" />
         </EntityType>
@@ -257,35 +221,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="VisitPurpose" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="PassStatusId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Employee" Relationship="GuardianModel.FK_Pass_Employee" FromRole="Pass" ToRole="Employee" />
-          <NavigationProperty Name="PassStatus" Relationship="GuardianModel.FK_Pass_PassStatus" FromRole="Pass" ToRole="PassStatus" />
-          <NavigationProperty Name="User" Relationship="GuardianModel.FK_Pass_User" FromRole="Pass" ToRole="User" />
-          <NavigationProperty Name="PassDocument" Relationship="GuardianModel.FK_PassDocument_Pass" FromRole="Pass" ToRole="PassDocument" />
-          <NavigationProperty Name="PassGuest" Relationship="GuardianModel.FK_PassGuest_Pass" FromRole="Pass" ToRole="PassGuest" />
-        </EntityType>
-        <EntityType Name="PassDocument">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DocumentFile" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="PassId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pass" Relationship="GuardianModel.FK_PassDocument_Pass" FromRole="PassDocument" ToRole="Pass" />
-        </EntityType>
-        <EntityType Name="PassGuest">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patromic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patromic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -293,9 +231,26 @@
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
           <Property Name="PassportSeria" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
-          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="PassId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Pass" Relationship="GuardianModel.FK_PassGuest_Pass" FromRole="PassGuest" ToRole="Pass" />
+          <Property Name="Photo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VisitPurpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassStatusId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="GuardianModel.FK_Pass_Employee" FromRole="Pass" ToRole="Employee" />
+          <NavigationProperty Name="PassStatus" Relationship="GuardianModel.FK_Pass_PassStatus" FromRole="Pass" ToRole="PassStatus" />
+          <NavigationProperty Name="User" Relationship="GuardianModel.FK_Pass_User" FromRole="Pass" ToRole="User" />
+          <NavigationProperty Name="PassDocument" Relationship="GuardianModel.FK_PassDocument_Pass" FromRole="Pass" ToRole="PassDocument" />
+        </EntityType>
+        <EntityType Name="PassDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentFile" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="PassId" Type="Int32" />
+          <NavigationProperty Name="Pass" Relationship="GuardianModel.FK_PassDocument_Pass" FromRole="PassDocument" ToRole="Pass" />
         </EntityType>
         <EntityType Name="PassStatus">
           <Key>
@@ -320,15 +275,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="PassportSeria" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Appointment" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Pass" Relationship="GuardianModel.FK_Pass_User" FromRole="User" ToRole="Pass" />
         </EntityType>
         <Association Name="FK_Employee_Department">
@@ -339,7 +287,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Employee">
-              <PropertyRef Name="DepertmentId" />
+              <PropertyRef Name="DepartmentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -380,25 +328,13 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PassDocument_Pass">
-          <End Type="GuardianModel.Pass" Role="Pass" Multiplicity="1" />
+          <End Type="GuardianModel.Pass" Role="Pass" Multiplicity="0..1" />
           <End Type="GuardianModel.PassDocument" Role="PassDocument" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Pass">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PassDocument">
-              <PropertyRef Name="PassId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PassGuest_Pass">
-          <End Type="GuardianModel.Pass" Role="Pass" Multiplicity="1" />
-          <End Type="GuardianModel.PassGuest" Role="PassGuest" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Pass">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PassGuest">
               <PropertyRef Name="PassId" />
             </Dependent>
           </ReferentialConstraint>
@@ -420,7 +356,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="GuardianModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="DepertmentId" ColumnName="DepertmentId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -429,29 +365,12 @@
           <EntitySetMapping Name="Pass">
             <EntityTypeMapping TypeName="GuardianModel.Pass">
               <MappingFragment StoreEntitySet="Pass">
-                <ScalarProperty Name="PassStatusId" ColumnName="PassStatusId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PassStatusId" ColumnName="PassStatusId" />
                 <ScalarProperty Name="VisitPurpose" ColumnName="VisitPurpose" />
                 <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
                 <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PassDocument">
-            <EntityTypeMapping TypeName="GuardianModel.PassDocument">
-              <MappingFragment StoreEntitySet="PassDocument">
-                <ScalarProperty Name="PassId" ColumnName="PassId" />
-                <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PassGuest">
-            <EntityTypeMapping TypeName="GuardianModel.PassGuest">
-              <MappingFragment StoreEntitySet="PassGuest">
-                <ScalarProperty Name="PassId" ColumnName="PassId" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
                 <ScalarProperty Name="PassportSeria" ColumnName="PassportSeria" />
@@ -463,6 +382,15 @@
                 <ScalarProperty Name="Patromic" ColumnName="Patromic" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassDocument">
+            <EntityTypeMapping TypeName="GuardianModel.PassDocument">
+              <MappingFragment StoreEntitySet="PassDocument">
+                <ScalarProperty Name="PassId" ColumnName="PassId" />
+                <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -489,15 +417,8 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="GuardianModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Appointment" ColumnName="Appointment" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
-                <ScalarProperty Name="PassportSeria" ColumnName="PassportSeria" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

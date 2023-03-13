@@ -10,13 +10,13 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="ФИО"/>
+            <!--<TextBlock Text="ФИО"/>
             <TextBox x:Name="TBFullName"
                      Text="{Binding FullName}"/>
             
             <TextBlock Text="Номер телефона"/>
             <TextBox x:Name="TBNumberPhone"
-                     Text="{Binding Number}"/>
+                     Text="{Binding Phone}"/>
             
             <TextBlock Text="E-mail"/>
             <TextBox x:Name="TBEmail"
@@ -24,14 +24,14 @@
 
             <TextBlock Text="Дата рождения"/>
             <DatePicker x:Name="DPBirth"
-                        SelectedDate="{Binding Birthday}"/>
+                        SelectedDate="{Binding BirthDate}"/>
             
             <TextBlock Text="Серия пасспорта"/>
             <TextBox x:Name="TBPassportSeria"
                      Text="{Binding PassportSeria}"/>
             <TextBlock Text="Номер паспорта"/>
             <TextBox x:Name="TBPassportNumber"
-                     Text="{Binding PassportNumber}"/>
+                     Text="{Binding PassportNumber}"/>-->
             
             <TextBlock Text="Логин"/>
             <TextBox x:Name="TBLogin"
@@ -41,9 +41,9 @@
             <TextBox x:Name="TBPassword"
                      Text="{Binding Password}"/>
             
-            <TextBlock Text="Назначение"/>
+            <!--<TextBlock Text="Назначение"/>
             <DatePicker x:Name="DPAppointment"
-                        SelectedDate="{Binding Appointment}"/>
+                        SelectedDate="{Binding Appointment}"/>-->
             
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">

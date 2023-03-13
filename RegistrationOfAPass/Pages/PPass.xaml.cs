@@ -24,34 +24,42 @@ namespace RegistrationOfAPass.Pages
     /// </summary>
     public partial class PPass : Page
     {
-        PassGuest contextPassGuest;
-        public PPass(int mode)
+        Pass contextPass;
+        List<Pass> contextListPass = new List<Pass>();
+        bool _isPersonal;
+        public PPass(bool isPersonal)
         {
             InitializeComponent();
+            _isPersonal = isPersonal;
             CBDepartment.ItemsSource = App.DB.Department.ToList();
-            CBEmployee.ItemsSource = App.DB.Employee.ToList();
-            PassGuest pass = new PassGuest();
-            contextPassGuest = pass;
-            DataContext= contextPassGuest;
-            if(mode == 2)
+            contextPass = new Pass() { PassStatusId = 1, DateStart = DateTime.Now, DateEnd = DateTime.Now, User = App.loggedUser };
+            DataContext = contextPass;
+            if (_isPersonal)
             {
-                GGroup.Visibility = Visibility.Visible;
+                SPGroupList.Visibility = Visibility.Collapsed;
+                Grid.SetColumnSpan(SPInfoGuest, 2);
+                SPInfoGuest.HorizontalAlignment = HorizontalAlignment.Center;
+
             }
-           
+            else
+            {
+                SPGroupList.Visibility = Visibility.Visible;
+            }
+            Refresh();
         }
 
-        private void BRegister_Click(object sender, RoutedEventArgs e)
+        private bool ValidatePass()
         {
             string error = "";
-            if (String.IsNullOrWhiteSpace(contextPassGuest.Surname))
+            if (String.IsNullOrWhiteSpace(contextPass.Surname))
             {
                 error += "Фамилия - обязательное поле для заполнения\n";
             }
-            if (String.IsNullOrWhiteSpace(contextPassGuest.Name))
+            if (String.IsNullOrWhiteSpace(contextPass.Name))
             {
                 error += "Имя - обязательное поле для заполнения\n";
             }
-            if (String.IsNullOrWhiteSpace(contextPassGuest.Patromic))
+            if (String.IsNullOrWhiteSpace(contextPass.Patromic))
             {
                 error += "Отчество - обязательное поле для заполнения\n";
             }
@@ -63,13 +71,53 @@ namespace RegistrationOfAPass.Pages
             {
                 error += "Сотрудник - обязательное поле для заполнения\n";
             }
+            //ДАТА ДАТА ДАТАДАТАДАТАДАТАДАТАДАТА
+            //картинку
             if (String.IsNullOrWhiteSpace(error) != true)
             {
                 MessageBox.Show(error);
-                return;
+                return false;
             }
-            contextPassGuest.PassId = 1;
-            App.DB.PassGuest.Add(contextPassGuest);
+            return true;
+        }
+
+        private void AddGuest()
+        {
+            if (!ValidatePass())
+                return;
+
+            contextListPass.Add(contextPass);
+            contextPass = new Pass() { PassStatusId = 1, DateStart = DateTime.Now, DateEnd = DateTime.Now, User = App.loggedUser };
+            DataContext = contextPass;
+            DGGuests.ItemsSource = contextListPass.ToList();
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            var selectedDepartment = CBDepartment.SelectedItem as Department;
+            if (selectedDepartment != null)
+                CBEmployee.ItemsSource = App.DB.Employee.Where(e => e.DepartmentId == selectedDepartment.Id).ToList();
+        }
+
+        private void BRegister_Click(object sender, RoutedEventArgs e)
+        {
+            if (_isPersonal)
+            {
+                if (!ValidatePass())
+                    return;
+                App.DB.Pass.Add(contextPass);
+            }
+            else
+            {
+                if (contextListPass.Count != 0)
+                    App.DB.Pass.AddRange(contextListPass);
+            }
             App.DB.SaveChanges();
             NavigationService.GoBack();
         }
@@ -89,7 +137,10 @@ namespace RegistrationOfAPass.Pages
             if (dialog.ShowDialog().GetValueOrDefault())
             {
                 var image = File.ReadAllBytes(dialog.FileName);
-                IPhoto.Source = MyTools.BytesTOImage(image);
+                contextPass.Photo = image;
+                DataContext = null;
+                DataContext = contextPass;
+                //IPhoto.Source = MyTools.BytesTOImage(image);
             }
         }
 
@@ -100,7 +151,12 @@ namespace RegistrationOfAPass.Pages
 
         private void BAdd_Click(object sender, RoutedEventArgs e)
         {
+            AddGuest();
+        }
 
+        private void CBDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

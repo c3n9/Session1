@@ -22,7 +22,7 @@ namespace RegistrationOfAPass.Model
     
         public int Id { get; set; }
         public string FullName { get; set; }
-        public int DepertmentId { get; set; }
+        public int DepartmentId { get; set; }
     
         public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

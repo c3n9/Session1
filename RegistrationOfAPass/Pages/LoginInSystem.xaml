@@ -11,28 +11,33 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <TextBlock Text="Login"
+            <TextBlock Text="Логин"
                        FontSize="16"/>
             <TextBox x:Name="TBLogin"
-                     Width="200"/>
-            <TextBlock Text="Password"
+                     Width="240"/>
+            <TextBlock Text="Пароль"
                        FontSize="16"/>
             <PasswordBox x:Name="PBPassword"/>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="BLogin"
-                        Content="Login"
+                        Content="Войти"
                         Click="BLogin_Click"
                         Background="white"
                         BorderBrush="#ff9619"
-                        Width="100"
+                        Width="120"
                         />
                 <Button x:Name="BRegistration"
-                        Content="Registration"
+                        Content="Зарегестрироваться"
                         Click="BRegistration_Click"
                         Background="white"
                         BorderBrush="#ff9619"
-                        Width="100"/>
+                        Width="120"/>
             </StackPanel>
+            <Button x:Name="BGuest"
+                    Content="Войти как гость"
+                    Click="BGuest_Click"
+                    Background="White"
+                    BorderBrush="#ff9618"/>
         </StackPanel>
         
     </Grid>

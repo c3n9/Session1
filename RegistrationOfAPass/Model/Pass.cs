@@ -18,23 +18,31 @@ namespace RegistrationOfAPass.Model
         public Pass()
         {
             this.PassDocument = new HashSet<PassDocument>();
-            this.PassGuest = new HashSet<PassGuest>();
         }
     
         public int Id { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Patromic { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Organization { get; set; }
+        public string Description { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
+        public string PassportSeria { get; set; }
+        public string PassportNumber { get; set; }
+        public byte[] Photo { get; set; }
         public System.DateTime DateStart { get; set; }
         public System.DateTime DateEnd { get; set; }
         public string VisitPurpose { get; set; }
-        public int EmployeeId { get; set; }
-        public Nullable<int> UserId { get; set; }
         public int PassStatusId { get; set; }
+        public Nullable<int> UserId { get; set; }
+        public int EmployeeId { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual PassStatus PassStatus { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PassDocument> PassDocument { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PassGuest> PassGuest { get; set; }
     }
 }

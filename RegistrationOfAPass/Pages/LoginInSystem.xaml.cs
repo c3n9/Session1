@@ -55,5 +55,11 @@ namespace RegistrationOfAPass.Pages
             var hash = md5.ComputeHash(Encoding.UTF8.GetBytes(input));
             return Convert.ToBase64String(hash);
         }
+
+        private void BGuest_Click(object sender, RoutedEventArgs e)
+        {
+            App.loggedUser = null;
+            NavigationService.Navigate(new Request());
+        }
     }
 }

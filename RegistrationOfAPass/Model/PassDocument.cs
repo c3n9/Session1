@@ -16,7 +16,7 @@ namespace RegistrationOfAPass.Model
     {
         public int Id { get; set; }
         public string DocumentFile { get; set; }
-        public int PassId { get; set; }
+        public Nullable<int> PassId { get; set; }
     
         public virtual Pass Pass { get; set; }
     }

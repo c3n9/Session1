@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Asus\OneDrive\Рабочий стол\Guardian\Session1\RegistrationOfAPass\obj\Debug\
+C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\
 RegistrationOfAPass
 none
 false
 DEBUG;TRACE
-C:\Users\Asus\OneDrive\Рабочий стол\Guardian\Session1\RegistrationOfAPass\App.xaml
+C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\App.xaml
 61208825040
 2809586783
-23-1374688881
-18149687743
+22348784375
+1838424629
 MainWindow.xaml;Pages\LoginInSystem.xaml;Pages\PApplications.xaml;Pages\PPass.xaml;Pages\PRegistration.xaml;Pages\Request.xaml;
 
 True

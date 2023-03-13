@@ -12,7 +12,7 @@
     <EntitySetMapping Name="Employee">
       <EntityTypeMapping TypeName="GuardianModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="DepertmentId" ColumnName="DepertmentId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
@@ -21,29 +21,12 @@
     <EntitySetMapping Name="Pass">
       <EntityTypeMapping TypeName="GuardianModel.Pass">
         <MappingFragment StoreEntitySet="Pass">
-          <ScalarProperty Name="PassStatusId" ColumnName="PassStatusId" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PassStatusId" ColumnName="PassStatusId" />
           <ScalarProperty Name="VisitPurpose" ColumnName="VisitPurpose" />
           <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
           <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PassDocument">
-      <EntityTypeMapping TypeName="GuardianModel.PassDocument">
-        <MappingFragment StoreEntitySet="PassDocument">
-          <ScalarProperty Name="PassId" ColumnName="PassId" />
-          <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PassGuest">
-      <EntityTypeMapping TypeName="GuardianModel.PassGuest">
-        <MappingFragment StoreEntitySet="PassGuest">
-          <ScalarProperty Name="PassId" ColumnName="PassId" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
           <ScalarProperty Name="PassportSeria" ColumnName="PassportSeria" />
@@ -55,6 +38,15 @@
           <ScalarProperty Name="Patromic" ColumnName="Patromic" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PassDocument">
+      <EntityTypeMapping TypeName="GuardianModel.PassDocument">
+        <MappingFragment StoreEntitySet="PassDocument">
+          <ScalarProperty Name="PassId" ColumnName="PassId" />
+          <ScalarProperty Name="DocumentFile" ColumnName="DocumentFile" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -81,15 +73,8 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="GuardianModel.User">
         <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="Appointment" ColumnName="Appointment" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
-          <ScalarProperty Name="PassportSeria" ColumnName="PassportSeria" />
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Number" ColumnName="Number" />
-          <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

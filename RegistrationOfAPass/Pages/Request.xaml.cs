@@ -23,16 +23,20 @@ namespace RegistrationOfAPass.Pages
         public Request()
         {
             InitializeComponent();
+            if(App.loggedUser == null)
+            {
+                BApplications.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Bpersonal_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PPass(1));
+            NavigationService.Navigate(new PPass(true));
         }
 
         private void BGroup_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PPass(2));
+            NavigationService.Navigate(new PPass(false));
         }
 
         private void BApplications_Click(object sender, RoutedEventArgs e)

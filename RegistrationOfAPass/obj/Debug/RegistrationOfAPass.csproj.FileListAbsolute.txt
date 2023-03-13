@@ -42,9 +42,7 @@ C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\bin\Debug
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\RegistrationOfAPass.csproj.AssemblyReference.cache
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\RegistrationOfAPass.csproj.SuggestedBindingRedirects.cache
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\MainWindow.g.cs
-C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\GroupRegistration.g.cs
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\LoginInSystem.g.cs
-C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PPersonalRegistration.g.cs
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PRegistration.g.cs
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\Request.g.cs
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\App.g.cs
@@ -52,9 +50,7 @@ C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\RegistrationOfAPass_MarkupCompile.cache
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\RegistrationOfAPass_MarkupCompile.lref
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\MainWindow.baml
-C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\GroupRegistration.baml
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\LoginInSystem.baml
-C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PPersonalRegistration.baml
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PRegistration.baml
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\Request.baml
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\RegistrationOfAPass.g.resources
@@ -128,3 +124,7 @@ C:\Users\Asus\OneDrive\Рабочий стол\Guardian\Session1\RegistrationOfA
 C:\Users\Asus\OneDrive\Рабочий стол\Guardian\Session1\RegistrationOfAPass\obj\Debug\RegistrationOfAPass.pdb
 C:\Users\Asus\OneDrive\Рабочий стол\Guardian\Session1\RegistrationOfAPass\obj\Debug\Pages\PApplications.g.cs
 C:\Users\Asus\OneDrive\Рабочий стол\Guardian\Session1\RegistrationOfAPass\obj\Debug\Pages\PApplications.baml
+C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PApplications.g.cs
+C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PPass.g.cs
+C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PApplications.baml
+C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PPass.baml

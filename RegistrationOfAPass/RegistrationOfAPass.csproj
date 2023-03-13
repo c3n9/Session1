@@ -129,9 +129,6 @@
     <Compile Include="Model\PassDocument.cs">
       <DependentUpon>ModelGuardian.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PassGuest.cs">
-      <DependentUpon>ModelGuardian.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\PassStatus.cs">
       <DependentUpon>ModelGuardian.tt</DependentUpon>
     </Compile>
