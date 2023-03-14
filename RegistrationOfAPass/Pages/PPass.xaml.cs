@@ -39,7 +39,6 @@ namespace RegistrationOfAPass.Pages
                 SPGroupList.Visibility = Visibility.Collapsed;
                 Grid.SetColumnSpan(SPInfoGuest, 2);
                 SPInfoGuest.HorizontalAlignment = HorizontalAlignment.Center;
-
             }
             else
             {
@@ -73,6 +72,17 @@ namespace RegistrationOfAPass.Pages
             }
             //ДАТА ДАТА ДАТАДАТАДАТАДАТАДАТАДАТА
             //картинку
+            DateTime birhday = DateTime.Now;
+            if (DPBirthday.SelectedDate != null)
+                birhday = (DateTime)DPBirthday.SelectedDate;
+            if ((DateTime.Now.Year - birhday.Year) < 16)
+            {
+                error += "Для получения пропуска нужно быть не моложе 16\n";
+            }
+            if(IPhoto.Source== null)
+            {
+                error += "Обязательно загрузите фотографию\n";
+            }
             if (String.IsNullOrWhiteSpace(error) != true)
             {
                 MessageBox.Show(error);
@@ -146,7 +156,7 @@ namespace RegistrationOfAPass.Pages
 
         private void BClear_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void BAdd_Click(object sender, RoutedEventArgs e)

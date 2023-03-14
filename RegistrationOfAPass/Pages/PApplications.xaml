@@ -9,20 +9,20 @@
       Title="PApplications">
 
     <Grid>
-        <DataGrid>
+        <DataGrid x:Name="DGPasses"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Имя"
-                                    Binding="{Binding PassGUest.Name}"/>
+                                    Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Фамилия"
-                                    Binding="{Binding PassGUest.Surname}"/>
+                                    Binding="{Binding Surname}"/>
                 <DataGridTextColumn Header="Отчество"
-                                    Binding="{Binding PassGUest.Patromic}"/>
+                                    Binding="{Binding Patromic}"/>
                 <DataGridTextColumn Header="Начало действия пропуска"
-                                    Binding="{Binding StartDate}"/>
+                                    Binding="{Binding DateStart, StringFormat={}{0:dd/MM/yy}}"/>
                 <DataGridTextColumn Header="Конец действия пропуска"
-                                    Binding="{Binding EndDate}"/>
-                <DataGridTextColumn Header="Начало действия пропуска"
-                                    Binding="{Binding StartDate}"/>
+                                    Binding="{Binding DateEnd, StringFormat={}{0:dd/MM/yy}}"/>
                 <DataGridTextColumn Header="Статус"
                                     Binding="{Binding PassStatus.Name}"/>
             </DataGrid.Columns>

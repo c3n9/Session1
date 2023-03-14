@@ -51,7 +51,7 @@
                     <StackPanel>
                         <Image Source="/images/Applications.png"
                                Height="80"/>
-                        <TextBlock Text="Групповое посещение"
+                        <TextBlock Text="Личный кабинет"
                            Foreground="#938d8b"/>
                     </StackPanel>
                 </Button>

@@ -35,42 +35,6 @@ namespace RegistrationOfAPass.Pages
         private void BRegistration_Click(object sender, RoutedEventArgs e)
         {
             string error = "";
-            //if (String.IsNullOrWhiteSpace(contextUser.FullName))
-            //{
-            //    error += "Введите ФИО\n";
-            //}
-            //if (String.IsNullOrWhiteSpace(contextUser.Phone))
-            //{
-            //    error += "Введите номер телефона\n";
-            //}
-            //if (String.IsNullOrWhiteSpace(contextUser.Email))
-            //{
-            //    error += "Введите E-mail\n";
-            //}
-            //if(contextUser.BirthDate == null)
-            //{
-            //    error += "Введите дату рождения\n";
-            //}
-            //if (String.IsNullOrWhiteSpace(contextUser.Login))
-            //{
-            //    error += "Введите логин\n";
-            //}
-            //if (String.IsNullOrWhiteSpace(contextUser.Password))
-            //{
-            //    error += "Введите пароль\n";
-            //}
-            //if (String.IsNullOrEmpty(contextUser.PassportSeria))
-            //{
-            //    error += "Введите серию паспорта\n";
-            //}
-            //if (String.IsNullOrEmpty(contextUser.PassportNumber))
-            //{
-            //    error += "Введите номер паспорта\n";
-            //}
-            //if (contextUser.Appointment == null)
-            //{
-            //    error += "Введите назначение\n";
-            //}
             if (contextUser.Password.Length < 8)
             {
                 error += "Пароль должен быть не менее 8 символов\n";
@@ -92,8 +56,7 @@ namespace RegistrationOfAPass.Pages
                     break;
                 }
             }
-            //^(?=.*[a - z])(?=.*[A - Z])(?=.*\d).{ 8,15}$
-            if(Regex.IsMatch(contextUser.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$") != true)
+            if (Regex.IsMatch(contextUser.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$") != true)
             {
                 error += "Неверный формат пароля";
             }

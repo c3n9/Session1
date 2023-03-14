@@ -23,6 +23,7 @@ namespace RegistrationOfAPass.Pages
         public PApplications()
         {
             InitializeComponent();
+            DGPasses.ItemsSource = App.DB.Pass.Where(p => p.User.Id == App.loggedUser.Id).ToList();
         }
     }
 }

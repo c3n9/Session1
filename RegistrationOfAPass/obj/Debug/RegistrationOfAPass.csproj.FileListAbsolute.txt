@@ -128,3 +128,5 @@ C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PPass.g.cs
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PApplications.baml
 C:\Users\progWeb\Desktop\Стражник\Session1\RegistrationOfAPass\obj\Debug\Pages\PPass.baml
+C:\Users\quart\OneDrive\Рабочий стол\guardian\Session1\RegistrationOfAPass\obj\Debug\Pages\PApplications.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\guardian\Session1\RegistrationOfAPass\obj\Debug\Pages\PApplications.baml
